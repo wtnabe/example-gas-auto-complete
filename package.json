@@ -1,0 +1,16 @@
+{
+  "devDependencies": {
+    "gas-manager": "*",
+    "gas-console": "*",
+    "coffee-script": "*",
+    "rajah": "*",
+    "http-server": "*"
+  },
+  "scripts": {
+    "init": "gas init",
+    "pull": "gas -c ./gas-config.json download",
+    "push": "gas -c ./gas-config.json upload",
+    "serve": "http-server src",
+    "spec": "coffee --no-header -b -c -o spec spec/*.coffee && rajah spec/*.js --codegs -o spec.js"
+  }
+}

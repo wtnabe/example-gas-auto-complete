@@ -1,0 +1,5 @@
+*~
+*.bak
+/node_modules
+gas-config.json
+gas-project.json
