@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css">
+    <base target="_top">
+  </head>
+  <body>
+    <div class="container">
+      <select name="company"></select>
+      <p><button type="button" id="send-company">send company</button></p>
+    </div>
+    <script type="text/javascript">
+      $('select[name="company"]').select2({data: [
+      <? getOptions().map(function(e, i) { ?>
+        {id: '<?= e ?>', text: '<?= e ?>'},
+      <? }); ?>
+      ]
+      });
+      $('#send-company').on('click', function() {
+        var value = $('select[name="company"]').get(0).value;
+        google.script.run.sendData(value);
+      });
+    </script>
+  </body>
+</html>
+
+
